@@ -25,6 +25,8 @@ LABEL org.opencontainers.image.version=$APP_VERSION
 FROM node:18-alpine AS runner
 ARG APP_VERSION
 ENV APP_VERSION=$APP_VERSION
+ENV NODE_ENV=production
+ENV HOST="0.0.0.0"
 LABEL org.opencontainers.image.version=$APP_VERSION
 WORKDIR /app
 

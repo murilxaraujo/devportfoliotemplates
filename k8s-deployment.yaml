@@ -1,0 +1,94 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: murilo-portifolio
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: murilo-portifolio
+  namespace: murilo-portifolio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: murilo-portifolio
+  template:
+    metadata:
+      labels:
+        app: murilo-portifolio
+    spec:
+      containers:
+      - name: murilo-portifolio
+        image: ghcr.io/murilxaraujo/modern-minimal-portfolio:1.0.1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: murilo-portifolio-service
+  namespace: murilo-portifolio
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: murilo-portifolio
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: murilo-portifolio
+  namespace: murilo-portifolio
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+  - host: muriloaraujo.dev  # TODO: replace with your host
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: murilo-portifolio-service
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - muriloaraujo.dev  # TODO: replace with your host
+    secretName: murilo-portifolio-tls  # TODO: replace with your TLS secret name
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: murilo-portifolio2
+  namespace: murilo-portifolio
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  rules:
+  - host: muriloaraujo.com  # TODO: replace with your host
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: murilo-portifolio-service
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - muriloaraujo.com  # TODO: replace with your host
+    secretName: murilo-portifolio-tls2  # TODO: replace with your TLS secret name
