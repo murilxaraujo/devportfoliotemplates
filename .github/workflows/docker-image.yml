@@ -6,6 +6,10 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -19,12 +23,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to Docker Hub
+      - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: docker.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
@@ -32,7 +36,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/modern-minimal-portfolio:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/modern-minimal-portfolio:latest
+            ghcr.io/${{ github.repository_owner }}/modern-minimal-portfolio:${{ github.ref_name }}
+            ghcr.io/${{ github.repository_owner }}/modern-minimal-portfolio:latest
           build-args: |
             APP_VERSION=${{ github.ref_name }}
