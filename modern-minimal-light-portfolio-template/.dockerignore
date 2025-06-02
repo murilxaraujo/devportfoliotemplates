@@ -1,0 +1,13 @@
+# Ignore node modules and build outputs
+node_modules
+.next
+
+# Dockerfile and ignore file
+Dockerfile
+.dockerignore
+
+# Git files
+.git
+.gitignore
+# Log files
+*.log

@@ -129,6 +129,24 @@ Follow these steps to deploy your portfolio for free using GitHub and Vercel:
 
 Your portfolio will be live in minutes with a free Vercel domain (e.g., `your-repo.vercel.app`). You can later add a custom domain in your Vercel project settings.
 
+### Docker Deployment
+
+You can build and tag your Docker image using a git tag (or default to `latest`):
+
+```bash
+# Extract the current git tag, fallback to 'latest'
+TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo latest)
+
+# Build the Docker image, passing the tag as a build argument and image tag
+docker build \
+  --build-arg APP_VERSION=$TAG \
+  -t yourdockeruser/modern-minimal-portfolio:$TAG \
+  .
+
+# Run the container
+docker run -p 3000:3000 yourdockeruser/modern-minimal-portfolio:$TAG
+```
+
 ## Support
 
 If you find these templates helpful, please consider:
