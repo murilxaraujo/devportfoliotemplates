@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: '[Your Name] - Software Developer',
+	title: 'Murilo Araujo - Software Developer',
 	description:
 		'Welcome to my portfolio! I am a passionate software developer with a focus on clean, minimal, and effective solutions. I believe in the power of simplicity and thoughtful design to create impactful digital experiences.',
 	keywords: [

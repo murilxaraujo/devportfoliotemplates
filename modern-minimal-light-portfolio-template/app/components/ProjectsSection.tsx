@@ -7,25 +7,37 @@ import Link from 'next/link';
 const projects = [
 	{
 		id: 1,
-		title: 'E-Commerce Platform',
+		title: 'Pinterest',
 		description: 'A modern e-commerce platform built with Next.js and Stripe',
 		image: '/code.jpg',
 	},
 	{
 		id: 2,
-		title: 'AI Chat Application',
+		title: 'C6 Bank + JP Morgan Chase',
 		description: 'Real-time chat application powered by OpenAI',
 		image: '/laptop.jpg',
 	},
 	{
 		id: 3,
-		title: 'Task Management',
+		title: 'Itaú',
 		description: 'Collaborative task management tool with real-time updates',
 		image: '/code.jpg',
 	},
 	{
 		id: 4,
-		title: 'Portfolio Generator',
+		title: 'Porto Seguro',
+		description: 'Dynamic portfolio generator for developers',
+		image: '/laptop.jpg',
+	},
+	{
+		id: 5,
+		title: 'Studio Onze',
+		description: 'Dynamic portfolio generator for developers',
+		image: '/laptop.jpg',
+	},
+	{
+		id: 6,
+		title: 'Rede',
 		description: 'Dynamic portfolio generator for developers',
 		image: '/laptop.jpg',
 	},
@@ -66,12 +78,6 @@ export default function ProjectsSection() {
 									className="text-sm px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full transition-all duration-300 backdrop-blur-sm"
 								>
 									View Project
-								</Link>
-								<Link
-									href="#"
-									className="text-sm px-4 py-2 bg-white hover:bg-gray-100 text-gray-900 rounded-full transition-all duration-300 backdrop-blur-sm"
-								>
-									GitHub
 								</Link>
 							</div>
 						</div>
