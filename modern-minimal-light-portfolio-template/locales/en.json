@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "name": "Murilo Araujo",
+    "subtitle": "Specialist Software Engineer"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "viewProject": "View Project",
+    "1": {
+      "title": "Pinterest",
+      "description": "A modern e-commerce platform built with Next.js and Stripe"
+    },
+    "2": {
+      "title": "C6 Bank + JP Morgan Chase",
+      "description": "Real-time chat application powered by OpenAI"
+    },
+    "3": {
+      "title": "Itaú",
+      "description": "Collaborative task management tool with real-time updates"
+    },
+    "4": {
+      "title": "Porto Seguro",
+      "description": "Dynamic portfolio generator for developers"
+    },
+    "5": {
+      "title": "Studio Onze",
+      "description": "Dynamic portfolio generator for developers"
+    },
+    "6": {
+      "title": "Rede",
+      "description": "Dynamic portfolio generator for developers"
+    }
+  },
+  "skills": {
+    "title": "Skills & Technologies"
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "description": "Have a project in mind? Let's create something amazing together.",
+    "location": "Goiânia, GO - Brazil",
+    "getInTouch": "Get in Touch",
+    "viewResume": "View Resume"
+  }
+}

@@ -1,9 +1,11 @@
 'use client';
+import { useTranslations } from 'next-intl';
 
 import { motion } from 'framer-motion';
 
 export default function ContactSection() {
-	return (
+   const t = useTranslations();
+   return (
 		<section className="py-12 md:py-20 px-4 bg-white">
 			<div className="max-w-3xl mx-auto text-center">
 				<motion.h2
@@ -13,7 +15,7 @@ export default function ContactSection() {
 					transition={{ duration: 0.6 }}
 					className="text-3xl md:text-4xl font-bold mb-8 text-gray-800"
 				>
-					Let&apos;s Connect
+{t('contact.title')}
 				</motion.h2>
 				<motion.p
 					initial={{ opacity: 0, y: 20 }}
@@ -22,7 +24,7 @@ export default function ContactSection() {
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="text-gray-600 mb-6"
 				>
-					Have a project in mind? Let&apos;s create something amazing together.
+{t('contact.description')}
 				</motion.p>
 
 				<motion.div
@@ -35,7 +37,7 @@ export default function ContactSection() {
 					<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 						<path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
 					</svg>
-					<span>Goiânia, GO - Brazil</span>
+<span>{t('contact.location')}</span>
 				</motion.div>
 
 				<motion.div
@@ -53,7 +55,7 @@ export default function ContactSection() {
 							<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
 							<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
 						</svg>
-						<span>Get in Touch</span>
+<span>{t('contact.getInTouch')}</span>
 					</a>
 					<a
 						href="/resume.pdf"
@@ -65,7 +67,7 @@ export default function ContactSection() {
 							<path d="M8 11a1 1 0 100 2h4a1 1 0 100-2H8z" />
 							<path d="M8 7a1 1 0 100 2h4a1 1 0 100-2H8z" />
 						</svg>
-						<span>View Resume</span>
+<span>{t('contact.viewResume')}</span>
 					</a>
 				</motion.div>
 

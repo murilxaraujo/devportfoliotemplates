@@ -1,9 +1,12 @@
-'use client';
+ 'use client';
+import { useTranslations } from 'next-intl';
 
 import { motion } from 'framer-motion';
 
 export default function HeroSection() {
-	return (
+  const t = useTranslations();
+
+  return (
 		<motion.section
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
@@ -22,7 +25,7 @@ export default function HeroSection() {
 					transition={{ duration: 0.8, delay: 0.2 }}
 					className="text-4xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600"
 				>
-					Murilo Araujo
+					{t('hero.name')}
 				</motion.h1>
 				<motion.p
 					initial={{ y: 50, opacity: 0 }}
@@ -30,7 +33,7 @@ export default function HeroSection() {
 					transition={{ duration: 0.8, delay: 0.4 }}
 					className="text-lg md:text-xl text-gray-600 mb-8 px-4"
 				>
-					Specialist Software Engineer
+					{t('hero.subtitle')}
 				</motion.p>
 			</div>
 

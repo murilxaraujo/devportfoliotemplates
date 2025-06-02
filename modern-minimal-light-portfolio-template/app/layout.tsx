@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import { NextIntlClientProvider } from 'next-intl';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -71,14 +72,49 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
-	return (
-		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
-		</html>
-	);
+export const dynamicParams = false;
+export async function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'pt-BR' }];
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params?: Promise<{ locale: string }>; 
+}) {
+  // Next.js passes params as a promise in LayoutProps
+  const resolvedParams = (await params) || { locale: 'en' };
+  const locale = resolvedParams.locale;
+  const enMessages = (await import('../locales/en.json')).default;
+  let messages = enMessages;
+  // Load locale-specific messages only when a valid locale is provided and not the default
+  if (locale && locale !== 'en') {
+    try {
+      const localeMessages = (await import(`../locales/${locale}.json`)).default;
+      messages = { ...enMessages, ...localeMessages };
+    } catch {
+      // Fallback to default messages on missing locale file
+      messages = enMessages;
+    }
+  }
+
+  // Provide 'now' and 'timeZone' to avoid calling runtime config
+  const now = new Date();
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return (
+    <html lang={locale}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <NextIntlClientProvider
+          locale={locale}
+          messages={messages}
+          now={now}
+          timeZone={timeZone}
+        >
+          {children}
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
 }

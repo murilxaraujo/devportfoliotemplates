@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "name": "Murilo Araujo",
+    "subtitle": "Engenheiro de Software Especialista"
+  },
+  "projects": {
+    "title": "Projetos em Destaque",
+    "viewProject": "Ver Projeto",
+    "1": {
+      "title": "Pinterest",
+      "description": "Uma plataforma de comércio eletrônico moderna construída com Next.js e Stripe"
+    },
+    "2": {
+      "title": "C6 Bank + JP Morgan Chase",
+      "description": "Aplicativo de chat em tempo real alimentado pela OpenAI"
+    },
+    "3": {
+      "title": "Itaú",
+      "description": "Ferramenta de gerenciamento de tarefas colaborativa com atualizações em tempo real"
+    },
+    "4": {
+      "title": "Porto Seguro",
+      "description": "Gerador de portfólio dinâmico para desenvolvedores"
+    },
+    "5": {
+      "title": "Studio Onze",
+      "description": "Gerador de portfólio dinâmico para desenvolvedores"
+    },
+    "6": {
+      "title": "Rede",
+      "description": "Gerador de portfólio dinâmico para desenvolvedores"
+    }
+  },
+  "skills": {
+    "title": "Habilidades e Tecnologias"
+  },
+  "contact": {
+    "title": "Vamos nos conectar",
+    "description": "Tem um projeto em mente? Vamos criar algo incrível juntos.",
+    "location": "Goiânia, GO - Brasil",
+    "getInTouch": "Entre em Contato",
+    "viewResume": "Ver Currículo"
+  }
+}
