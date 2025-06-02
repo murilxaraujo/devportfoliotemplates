@@ -4,23 +4,23 @@
     "subtitle": "Specialist Software Engineer"
   },
   "projects": {
-    "title": "Featured Projects",
+    "title": "Projects I've Worked On",
     "viewProject": "View Project",
     "1": {
       "title": "Pinterest",
-      "description": "A modern e-commerce platform built with Next.js and Stripe"
+      "description": "Social media platform for sharing and discovering ideas"
     },
     "2": {
       "title": "C6 Bank + JP Morgan Chase",
-      "description": "Real-time chat application powered by OpenAI"
+      "description": "Digital Banking Platform with advanced security features"
     },
     "3": {
       "title": "Itaú",
-      "description": "Collaborative task management tool with real-time updates"
+      "description": "Latin America's largest bank, focusing on digital transformation"
     },
     "4": {
       "title": "Porto Seguro",
-      "description": "Dynamic portfolio generator for developers"
+      "description": "Banking and Insurance platform with a focus on user experience"
     },
     "5": {
       "title": "Studio Onze",
@@ -28,7 +28,7 @@
     },
     "6": {
       "title": "Rede",
-      "description": "Dynamic portfolio generator for developers"
+      "description": "POS and Credit Card Processing System"
     }
   },
   "skills": {
